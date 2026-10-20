@@ -1,0 +1,128 @@
+{
+ "_generator": "https://github.com/Malek1414/Malek1414/blob/main/tools/readme_art.py",
+ "title": "Malek Hassan",
+ "tagline": "Local-first tools and deterministic guardrails around AI.",
+ "chips": [
+  "CS @ CODE Berlin",
+  "Morgana Studio",
+  "*Claude Code",
+  "basketball"
+ ],
+ "footer_left": "Malek Hassan \u00b7 Berlin \u00b7 2026",
+ "footer_right": "malek1414.github.io",
+ "alt": "Malek Hassan: a pixel basketball player dribbling, next to the name",
+ "accent": "jersey",
+ "colors": {
+  "hair": [
+   "#26262b",
+   "#1f2328"
+  ],
+  "skin": [
+   "#c98a55",
+   "#9b6233"
+  ],
+  "eye": [
+   "#0d1117",
+   "#1f2328"
+  ],
+  "jersey": [
+   "#ff6a2b",
+   "#e0531a"
+  ],
+  "num": [
+   "#ffffff",
+   "#ffffff"
+  ],
+  "shorts": [
+   "#3b4f8f",
+   "#24356b"
+  ],
+  "shoe": [
+   "#f0f3f6",
+   "#8b949e"
+  ],
+  "ball": [
+   "#e8803c",
+   "#c9601d"
+  ],
+  "seam": [
+   "#3a1d0a",
+   "#2b1a0c"
+  ]
+ },
+ "legend": {
+  "H": [
+   "hair",
+   "body"
+  ],
+  "S": [
+   "skin",
+   "body"
+  ],
+  "E": [
+   "eye",
+   "body"
+  ],
+  "J": [
+   "jersey",
+   "body"
+  ],
+  "W": [
+   "num",
+   "body"
+  ],
+  "P": [
+   "shorts",
+   "body"
+  ],
+  "L": [
+   "skin",
+   "body"
+  ],
+  "K": [
+   "shoe",
+   "body"
+  ],
+  "A": [
+   "skin",
+   "arm"
+  ],
+  "B": [
+   "ball",
+   "ball"
+  ],
+  "b": [
+   "seam",
+   "ball"
+  ]
+ },
+ "motions": {
+  "arm": "pump",
+  "ball": "bounce"
+ },
+ "sprite": [
+  "........HHHH.............",
+  ".......HHHHHH............",
+  ".......HHSSSS............",
+  ".......HSSSES............",
+  ".......SSSSSS............",
+  "........SSSS.............",
+  "......JJJJJJJJ...........",
+  ".....JJJJJJJJJJ..........",
+  "....JJJJWJWJWJJJ.........",
+  "...SJJJJWJWWWJJJAA.......",
+  "..SS.JJJWJJJWJJJ.AA......",
+  "..S..JJJJJJJJJJ...AA.....",
+  ".....JJJJJJJJJJ....AA....",
+  ".....PPPPPPPPPP.....AA...",
+  ".....PPPPPPPPPP....BBBB..",
+  ".....PPPPP.PPPP...BBbBBB.",
+  ".....LLL....LLL...BbbbbB.",
+  ".....LLL....LLL...BBBbBB.",
+  ".....LLL....LLL....BBBB..",
+  ".....LLL....LLL..........",
+  ".....LLL....LLL..........",
+  ".....LLL....LLL..........",
+  "....KKKK...KKKKK........."
+ ]
+}
