@@ -1,0 +1,86 @@
+{
+  "built": "2026-10-21",
+  "mine": 1684,
+  "others": 440,
+  "repos": 47,
+  "rows": [
+    {
+      "label": "29 private repos",
+      "kind": "private",
+      "mine": 1253,
+      "others": 172
+    },
+    {
+      "label": "f1-predictions",
+      "kind": "public",
+      "mine": 74,
+      "others": 0
+    },
+    {
+      "label": "MOZCODE",
+      "kind": "public",
+      "mine": 72,
+      "others": 0
+    },
+    {
+      "label": "SCIO",
+      "kind": "public",
+      "mine": 72,
+      "others": 0
+    },
+    {
+      "label": "Offerprofi",
+      "kind": "public",
+      "mine": 60,
+      "others": 0
+    },
+    {
+      "label": "Malek1414.github.io",
+      "kind": "public",
+      "mine": 54,
+      "others": 0
+    },
+    {
+      "label": "hoopergpt",
+      "kind": "public",
+      "mine": 33,
+      "others": 252
+    },
+    {
+      "label": "taxfix-cursor-hackathon",
+      "kind": "public",
+      "mine": 21,
+      "others": 5
+    },
+    {
+      "label": "7 more public repos",
+      "kind": "public",
+      "mine": 18,
+      "others": 0
+    },
+    {
+      "label": "vidbridge-public-video-demo",
+      "kind": "public",
+      "mine": 8,
+      "others": 0
+    },
+    {
+      "label": "nightcrawler",
+      "kind": "public",
+      "mine": 8,
+      "others": 11
+    },
+    {
+      "label": "keychat",
+      "kind": "public",
+      "mine": 6,
+      "others": 0
+    },
+    {
+      "label": "social-chrome",
+      "kind": "public",
+      "mine": 5,
+      "others": 0
+    }
+  ]
+}

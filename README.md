@@ -8,7 +8,7 @@
 <p align="center">
   <a href="https://malek1414.github.io"><b>Website</b></a> &nbsp;·&nbsp;
   <a href="https://github.com/Malek1414?tab=repositories"><b>All repos</b></a> &nbsp;·&nbsp;
-  <a href="#claude-code-by-the-numbers"><b>Token count</b></a>
+  <a href="#by-the-numbers"><b>By the numbers</b></a>
 </p>
 
 I build AI systems in Berlin: local-first tools, deterministic guardrails around AI, and commit logs that read like a story. I study computer science at CODE University and run Morgana Studio. Most of what you see here was built with Claude Code, and I keep count.
@@ -18,7 +18,12 @@ I build AI systems in Berlin: local-first tools, deterministic guardrails around
   <img alt="" src="assets/readme/divider-light.svg" width="100%">
 </picture>
 
-## Claude Code, by the numbers
+## By the numbers
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/commits-dark.svg">
+  <img alt="Bar chart of commits per repo, mine and collaborators'" src="assets/commits-light.svg" width="100%">
+</picture>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/tokens-dark.svg">
@@ -30,7 +35,7 @@ I build AI systems in Berlin: local-first tools, deterministic guardrails around
   <img alt="A pixel sandworm rising from the dunes, next to how many copies of Dune those tokens add up to" src="assets/dune-light.svg" width="100%">
 </picture>
 
-<sub>Counted from my local Claude Code transcripts, so it covers the time those are kept. Private repos are summed into one bar. Rebuilt with <code>python3 tools/build_profile.py</code>.</sub>
+<sub>Commits come from the GitHub API; tokens are counted from my local Claude Code transcripts, so they cover the time those are kept. Private repos are summed into one bar. Rebuilt with <code>python3 tools/build_profile.py</code>.</sub>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/divider-dark.svg">
