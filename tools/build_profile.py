@@ -13,7 +13,7 @@ private ones into one bar, then writes:
 import json
 import subprocess
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -36,22 +36,58 @@ THEMES = {
 }
 
 
+LEDGER = Path.home() / ".local" / "share" / "claude-profile" / "ledger.json"
+STATS_CACHE = Path.home() / ".claude" / "stats-cache.json"
+
+
+def update_ledger(days):
+    """Keep per-day, per-repo totals after Claude Code deletes old transcripts (about 30 days).
+
+    Each run adds what the transcripts still show; a day/repo pair keeps the larger of the old
+    and new numbers, so nothing shrinks when its transcript is cleaned up. Stays on this Mac."""
+    ledger = json.loads(LEDGER.read_text()) if LEDGER.exists() else {"days": {}}
+    for day, repos in days.items():
+        slot = ledger["days"].setdefault(day, {})
+        for repo, v in repos.items():
+            if v["total"] >= slot.get(repo, {}).get("total", 0):
+                slot[repo] = v
+    LEDGER.parent.mkdir(parents=True, exist_ok=True)
+    LEDGER.write_text(json.dumps(ledger, indent=1, sort_keys=True))
+    return ledger["days"]
+
+
+def model_name(m):
+    parts = m.removeprefix("claude-").split("-")
+    family = parts[0].capitalize()
+    nums = [p for p in parts[1:] if p.isdigit() and len(p) < 3]
+    return f"{family} {'.'.join(nums)}".strip()
+
+
 def collect():
-    """Usage per repo from the transcripts, with private repos folded into one row."""
-    data = token_stats.collect()
+    """All-time numbers from Claude Code's /stats cache, per-repo numbers from the transcript ledger."""
+    t = token_stats.collect()
+    days = update_ledger(t["days"])
     listing = json.loads(subprocess.run(
         ["gh", "repo", "list", "Malek1414", "--limit", "300", "--json", "name,visibility"],
         capture_output=True, text=True, check=True).stdout)
     public = {r["name"] for r in listing if r["visibility"] == "PUBLIC"}
+
+    # Per repo, over every day the ledger has seen.
+    per = {}
+    for repos in days.values():
+        for repo, v in repos.items():
+            agg = per.setdefault(repo, {"total": 0, "output": 0})
+            agg["total"] += v["total"]
+            agg["output"] += v["output"]
     rows, private, general = [], {"total": 0, "output": 0, "count": 0}, None
-    for r in data["repos"]:
-        if r["repo"] == "(no repo)":
-            general = {"label": "general sessions", "kind": "general", "total": r["total"], "output": r["output"]}
-        elif r["repo"] in public:
-            rows.append({"label": r["repo"], "kind": "public", "total": r["total"], "output": r["output"]})
+    for repo, v in per.items():
+        if repo == "(no repo)":
+            general = {"label": "general sessions", "kind": "general", **v}
+        elif repo in public:
+            rows.append({"label": repo, "kind": "public", **v})
         else:
-            private["total"] += r["total"]
-            private["output"] += r["output"]
+            private["total"] += v["total"]
+            private["output"] += v["output"]
             private["count"] += 1
     rows.sort(key=lambda r: r["total"], reverse=True)
     shown, rest = rows[:9], rows[9:]
@@ -64,11 +100,28 @@ def collect():
     shown.sort(key=lambda r: r["total"], reverse=True)
     if general:
         shown.append(general)
-    t = data["totals"]
+    window = {"first": min(days), "last": max(days), "total": sum(r["total"] for r in shown),
+              "output": sum(r["output"] for r in shown)}
+
+    # All time: the /stats cache up to its last computed day, the ledger after that.
+    cache = json.loads(STATS_CACHE.read_text())
+    cut = cache["lastComputedDate"]
+    daily = {x["date"]: sum(x["tokensByModel"].values()) for x in cache["dailyModelTokens"]}
+    for day, repos in days.items():
+        if day > cut:
+            daily[day] = sum(v["total"] for v in repos.values())
+    models = {}
+    for m, u in cache["modelUsage"].items():
+        name = model_name(m)
+        models[name] = models.get(name, 0) + u["inputTokens"] + u["outputTokens"] + u["cacheReadInputTokens"] + u["cacheCreationInputTokens"]
+    after = [v for day, repos in days.items() if day > cut for v in repos.values()]
+    total = sum(models.values()) + sum(v["total"] for v in after)
+    output = sum(u["outputTokens"] for u in cache["modelUsage"].values()) + sum(v["output"] for v in after)
     return {
-        "first": data["first"][:10], "last": data["last"][:10], "built": datetime.now().strftime("%Y-%m-%d"),
-        "total": t["total"], "output": t["output"], "fresh": t["fresh"], "cache_read": t["cache_read"],
-        "calls": t["messages"], "dune_tokens": DUNE_TOKENS, "rows": shown,
+        "built": datetime.now().strftime("%Y-%m-%d"), "since": min(daily), "last": max(daily),
+        "total": total, "output": output, "sessions": cache["totalSessions"], "messages": cache["totalMessages"],
+        "daily": dict(sorted(daily.items())), "models": dict(sorted(models.items(), key=lambda kv: -kv[1])),
+        "window": window, "rows": shown, "dune_tokens": DUNE_TOKENS,
     }
 
 
@@ -214,8 +267,9 @@ def chart(d, theme):
             f'<g clip-path="url(#c{i}-{theme})"><rect class="sheen" x="{bar_x - 120}" y="{y}" width="90" height="22" '
             f'fill="url(#s-{theme})" style="animation-delay:{1.4 + i * 0.12:.2f}s"/></g>'
             f'<text class="val" x="{bar_x + w + 10:.1f}" y="{y + 16}" style="animation-delay:{delay + 0.5:.2f}s">{human(r["total"])}</text>')
-    period = f"{day(d['first'])} – {day(d['last'])}, {d['last'][:4]}"
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-label="Claude Code tokens by repo: {human(d['total'])} tokens from {period}">
+    w_ = d["window"]
+    period = f"{day(w_['first'])} – {day(w_['last'])}, {w_['last'][:4]}"
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-label="Claude Code tokens by repo: {human(w_['total'])} tokens from {period}">
 <defs>
   <linearGradient id="g-{theme}" x1="0" x2="1"><stop offset="0" stop-color="{t['accent']}"/><stop offset="1" stop-color="{t['accent2']}"/></linearGradient>
   <linearGradient id="s-{theme}" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
@@ -237,12 +291,87 @@ def chart(d, theme):
 </style>
 <rect width="{width}" height="{height}" rx="18" fill="{t['bg']}"/>
 <text class="h" x="48" y="64" font-size="30">Claude Code tokens, by repo</text>
-<text x="48" y="96" font-size="16" style="fill:{t['muted']}">{period} · {d['calls']:,} model calls · {human(d['output'])} tokens written by Claude</text>
+<text x="48" y="96" font-size="16" style="fill:{t['muted']}">{period} · {human(w_['output'])} written by Claude · per-repo history starts when transcripts were kept</text>
+<rect class="ants" x="{width - 318}" y="34" width="270" height="78" rx="12"/>
+<text class="h" x="{width - 183}" y="84" font-size="38" text-anchor="middle" style="fill:{t['accent']}">{human(w_['total'])}</text>
+<text x="{width - 183}" y="104" font-size="13" text-anchor="middle" style="fill:{t['muted']}">tokens in this window</text>
+{''.join(bars)}
+<text x="48" y="{height - 22}" font-size="13" style="fill:{t['muted']}">Counted from local Claude Code transcripts (input, output and cache) and attributed to a repo by working directory or the files each call touched. Rebuilt {d['built']}.</text>
+</svg>
+"""
+
+
+MODEL_COLORS = ["#ff6a2b", "#ffb347", "#8957e5", "#2f81f7", "#3fb950", "#8b949e"]
+
+
+def timeline(d, theme):
+    """Tokens per day since the /stats cache starts, bars rising left to right, plus the model mix."""
+    t = THEMES[theme]
+    width, height = 1200, 360
+    x0, x1, base, tall = 48, 1152, 300, 118
+    start = datetime.strptime(d["since"], "%Y-%m-%d")
+    end = datetime.strptime(d["last"], "%Y-%m-%d")
+    n = (end - start).days + 1
+    series = [d["daily"].get((start + timedelta(days=i)).strftime("%Y-%m-%d"), 0) for i in range(n)]
+    peak = max(series) or 1
+    step = (x1 - x0) / n
+    bw = max(2.0, step - 2)
+    bars, ticks = [], []
+    for i, v in enumerate(series):
+        h = max(1.5, tall * v / peak) if v else 0
+        if h:
+            bars.append(f'<rect class="day" x="{x0 + i * step:.1f}" y="{base - h:.1f}" width="{bw:.1f}" height="{h:.1f}" rx="1.5" '
+                        f'fill="url(#tl-{theme})" style="animation-delay:{0.2 + i * 0.012:.2f}s"/>')
+        dte = start + timedelta(days=i)
+        if dte.day == 1 or i == 0:
+            ticks.append(f'<text x="{x0 + i * step:.1f}" y="{base + 22}" font-size="13" style="fill:{t["muted"]}">{dte.strftime("%b %Y" if i == 0 or dte.month == 1 else "%b")}</text>')
+    pi = series.index(peak)
+    peak_day = (start + timedelta(days=pi)).strftime("%b %-d")
+    px = x0 + pi * step + bw / 2
+    # Model mix as one stacked bar.
+    models = list(d["models"].items())
+    top, rest = models[:5], sum(v for _, v in models[5:])
+    if rest:
+        top.append(("other", rest))
+    total = sum(v for _, v in top)
+    mix, legend, cx, lx = [], [], x0, x0
+    for i, (name, v) in enumerate(top):
+        w = (x1 - x0) * v / total
+        col = MODEL_COLORS[i % len(MODEL_COLORS)]
+        mix.append(f'<rect class="mix" x="{cx:.1f}" y="128" width="{max(w - 2, 1):.1f}" height="12" rx="3" fill="{col}" style="animation-delay:{0.1 + i * 0.12:.2f}s"/>')
+        label = f"{name} {100 * v / total:.0f}%"
+        legend.append(f'<rect x="{lx:.0f}" y="152" width="10" height="10" rx="2" fill="{col}"/><text x="{lx + 16:.0f}" y="161" font-size="13" style="fill:{t["muted"]}">{label}</text>')
+        lx += 30 + 7.4 * len(label)
+        cx += w
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-label="Claude Code tokens per day since {day(d['since'])}: {human(d['total'])} in total">
+<defs><linearGradient id="tl-{theme}" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="{t['accent']}"/><stop offset="1" stop-color="{t['accent2']}"/></linearGradient></defs>
+<style>
+  text {{ font-family: {FONT}; fill: {t['ink']}; }}
+  .h {{ font-weight: 700; letter-spacing: -0.02em; }}
+  .day {{ transform-box: fill-box; transform-origin: center bottom; transform: scaleY(0); animation: rise 0.9s cubic-bezier(.2,.9,.3,1) both; }}
+  .mix {{ transform-box: fill-box; transform-origin: left center; transform: scaleX(0); animation: grow .8s cubic-bezier(.2,.9,.3,1) both; }}
+  .pk {{ opacity: 0; animation: fade .6s ease 2.2s both; }}
+  @keyframes rise {{ to {{ transform: scaleY(1); }} }}
+  @keyframes grow {{ to {{ transform: scaleX(1); }} }}
+  @keyframes fade {{ to {{ opacity: 1; }} }}
+  .ants {{ fill: none; stroke: {t['accent']}; stroke-width: 2; stroke-dasharray: 8 6; animation: march 1.2s linear infinite; }}
+  @keyframes march {{ to {{ stroke-dashoffset: -28; }} }}
+  @media (prefers-reduced-motion: reduce) {{ .day, .mix {{ animation: none; transform: none; }} .pk {{ animation: none; opacity: 1; }} .ants {{ animation: none; }} }}
+</style>
+<rect width="{width}" height="{height}" rx="18" fill="{t['bg']}"/>
+<text class="h" x="48" y="64" font-size="30">Claude Code, all time</text>
+<text x="48" y="96" font-size="16" style="fill:{t['muted']}">Since {day(d['since'])}, {d['since'][:4]} · {d['sessions']:,} sessions · {d['messages']:,} messages · {human(d['output'])} written by Claude</text>
 <rect class="ants" x="{width - 318}" y="34" width="270" height="78" rx="12"/>
 <text class="h" x="{width - 183}" y="84" font-size="38" text-anchor="middle" style="fill:{t['accent']}">{human(d['total'])}</text>
 <text x="{width - 183}" y="104" font-size="13" text-anchor="middle" style="fill:{t['muted']}">tokens through Claude</text>
+{''.join(mix)}
+{''.join(legend)}
+<line x1="{x0}" y1="{base + 0.5}" x2="{x1}" y2="{base + 0.5}" stroke="{t['track']}" stroke-width="1"/>
 {''.join(bars)}
-<text x="48" y="{height - 22}" font-size="13" style="fill:{t['muted']}">Counted from local Claude Code transcripts (input, output and cache) and attributed to a repo by working directory or the files each call touched. Rebuilt {d['built']}.</text>
+{''.join(ticks)}
+<g class="pk"><line x1="{px:.1f}" y1="{base - tall - 6}" x2="{px:.1f}" y2="{base - tall - 18}" stroke="{t['muted']}"/>
+<text x="{min(px, x1 - 160):.1f}" y="{base - tall - 24}" font-size="13" style="fill:{t['muted']}">busiest day: {peak_day}, {human(peak)}</text></g>
+<text x="48" y="{height - 16}" font-size="13" style="fill:{t['muted']}">From Claude Code's own usage stats (input, output and cache tokens). Older history wasn't recorded on this Mac. Rebuilt {d['built']}.</text>
 </svg>
 """
 
@@ -322,11 +451,12 @@ def main():
     c = collect_commits()
     ASSETS.mkdir(exist_ok=True)
     (ASSETS / "commits.json").write_text(json.dumps(c, indent=2))
-    (ASSETS / "tokens.json").write_text(json.dumps(d, indent=2))
+    (ASSETS / "tokens.json").write_text(json.dumps({k: v for k, v in d.items()}, indent=2))
     for theme in ("dark", "light"):
         (ASSETS / f"tokens-{theme}.svg").write_text(chart(d, theme))
         (ASSETS / f"dune-{theme}.svg").write_text(dune(d, theme))
         (ASSETS / f"commits-{theme}.svg").write_text(commits_chart(c, theme))
+        (ASSETS / f"alltime-{theme}.svg").write_text(timeline(d, theme))
     print(f"{c['mine']:,} commits of mine (+{c['others']:,} by others) in {c['repos']} repos; "
           f"{human(d['total'])} tokens, {human(d['output'])} written, {len(d['rows'])} rows, "
           f"{d['output'] / d['dune_tokens']:.0f} Dunes written / {d['total'] / d['dune_tokens']:,.0f} read")

@@ -13,11 +13,18 @@ from pathlib import Path
 
 PROJECTS = Path.home() / ".claude" / "projects"
 _repo_cache: dict[str, str | None] = {}
+# Folders and repos that were renamed after the transcripts were written.
+PATH_ALIASES = {str(Path.home() / "Desktop/Projects/code hackathon project"): str(Path.home() / "Desktop/Projects/hoopergpt")}
+NAME_ALIASES = {"code-hackathon-project": "hoopergpt"}
 
 
 def repo_of(cwd: str) -> str | None:
     if cwd in _repo_cache:
         return _repo_cache[cwd]
+    key = cwd
+    for old, new in PATH_ALIASES.items():
+        if cwd == old or cwd.startswith(old + "/"):
+            cwd = new + cwd[len(old):]
     p, name = Path(cwd), None
     while p != p.parent and not p.exists():
         p = p.parent
@@ -30,10 +37,11 @@ def repo_of(cwd: str) -> str | None:
                 url = ""
             if "github.com" in url and "Malek1414/" in url:
                 name = url.rstrip("/").removesuffix(".git").split("Malek1414/")[-1]
+                name = NAME_ALIASES.get(name, name)
             break
         if d == Path.home():
             break
-    _repo_cache[cwd] = name
+    _repo_cache[key] = name
     return name
 
 
@@ -41,6 +49,7 @@ def collect() -> dict:
     """Totals and per-repo usage: {"first", "last", "totals", "repos": [...]}, biggest repo first."""
     seen = set()
     per = defaultdict(lambda: defaultdict(int))
+    days = defaultdict(lambda: defaultdict(lambda: defaultdict(int)))  # date -> repo -> field
     first, last = None, None
     path_re = re.compile(r"/Users/[^\s\"'`]+")
     for f in PROJECTS.rglob("*.jsonl"):
@@ -85,6 +94,10 @@ def collect() -> dict:
                 b["cache_write"] += u.get("cache_creation_input_tokens") or 0
                 b["cache_read"] += u.get("cache_read_input_tokens") or 0
                 b["messages"] += 1
+                if ts:
+                    dd = days[ts[:10]][repo]
+                    dd["total"] += sum((u.get(k) or 0) for k in ("input_tokens", "output_tokens", "cache_creation_input_tokens", "cache_read_input_tokens"))
+                    dd["output"] += u.get("output_tokens") or 0
     rows = []
     for repo, b in per.items():
         b = dict(b)
@@ -93,7 +106,8 @@ def collect() -> dict:
         rows.append({"repo": repo, **b})
     rows.sort(key=lambda r: r["total"], reverse=True)
     tot = {k: sum(r[k] for r in rows) for k in ("input", "output", "cache_write", "cache_read", "total", "fresh", "messages")}
-    return {"first": first, "last": last, "totals": tot, "repos": rows}
+    by_day = {d: {r: dict(v) for r, v in reps.items()} for d, reps in sorted(days.items())}
+    return {"first": first, "last": last, "totals": tot, "repos": rows, "days": by_day}
 
 
 def main() -> int:

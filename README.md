@@ -21,6 +21,16 @@ I build AI systems in Berlin: local-first tools, deterministic guardrails around
 ## By the numbers
 
 <picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/alltime-dark.svg">
+  <img alt="Claude Code tokens per day since July 2026, with the mix of models used" src="assets/alltime-light.svg" width="100%">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/dune-dark.svg">
+  <img alt="A pixel sandworm rising from the dunes, next to how many copies of Dune those tokens add up to" src="assets/dune-light.svg" width="100%">
+</picture>
+
+<picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/commits-dark.svg">
   <img alt="Bar chart of commits per repo, mine and collaborators'" src="assets/commits-light.svg" width="100%">
 </picture>
@@ -30,12 +40,7 @@ I build AI systems in Berlin: local-first tools, deterministic guardrails around
   <img alt="Bar chart of Claude Code tokens per repo" src="assets/tokens-light.svg" width="100%">
 </picture>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/dune-dark.svg">
-  <img alt="A pixel sandworm rising from the dunes, next to how many copies of Dune those tokens add up to" src="assets/dune-light.svg" width="100%">
-</picture>
-
-<sub>Commits come from the GitHub API; tokens are counted from my local Claude Code transcripts, so they cover the time those are kept. Private repos are summed into one bar. Rebuilt with <code>python3 tools/build_profile.py</code>.</sub>
+<sub>All-time tokens come from Claude Code's own usage stats, which start in July 2026 on this Mac. The per-repo split needs full transcripts, which Claude Code keeps for about 30 days, so that chart covers a shorter window and grows from here. Commits come from the GitHub API. Private repos are summed into one bar. Rebuilt with <code>python3 tools/build_profile.py</code>.</sub>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/divider-dark.svg">
