@@ -1,14 +1,14 @@
 {
-  "built": "2026-10-21",
-  "mine": 1687,
-  "others": 440,
-  "repos": 47,
+  "built": "2026-11-02",
+  "mine": 1742,
+  "others": 532,
+  "repos": 53,
   "rows": [
     {
-      "label": "29 private repos",
+      "label": "32 private repos",
       "kind": "private",
-      "mine": 1253,
-      "others": 172
+      "mine": 1289,
+      "others": 264
     },
     {
       "label": "f1-predictions",
@@ -43,8 +43,14 @@
     {
       "label": "hoopergpt",
       "kind": "public",
-      "mine": 33,
+      "mine": 37,
       "others": 252
+    },
+    {
+      "label": "10 more public repos",
+      "kind": "public",
+      "mine": 32,
+      "others": 0
     },
     {
       "label": "taxfix-cursor-hackathon",
@@ -53,9 +59,9 @@
       "others": 5
     },
     {
-      "label": "7 more public repos",
+      "label": "cue-rea",
       "kind": "public",
-      "mine": 21,
+      "mine": 9,
       "others": 0
     },
     {
@@ -74,12 +80,6 @@
       "label": "keychat",
       "kind": "public",
       "mine": 6,
-      "others": 0
-    },
-    {
-      "label": "social-chrome",
-      "kind": "public",
-      "mine": 5,
       "others": 0
     }
   ]
