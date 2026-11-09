@@ -1,25 +1,25 @@
 {
-  "built": "2026-11-02",
-  "mine": 1742,
-  "others": 532,
-  "repos": 53,
+  "built": "2026-11-09",
+  "mine": 1876,
+  "others": 545,
+  "repos": 57,
   "rows": [
     {
-      "label": "32 private repos",
+      "label": "33 private repos",
       "kind": "private",
-      "mine": 1289,
+      "mine": 1290,
       "others": 264
+    },
+    {
+      "label": "MOZCODE",
+      "kind": "public",
+      "mine": 80,
+      "others": 3
     },
     {
       "label": "f1-predictions",
       "kind": "public",
       "mine": 74,
-      "others": 0
-    },
-    {
-      "label": "MOZCODE",
-      "kind": "public",
-      "mine": 72,
       "others": 0
     },
     {
@@ -35,10 +35,28 @@
       "others": 0
     },
     {
+      "label": "13 more public repos",
+      "kind": "public",
+      "mine": 55,
+      "others": 11
+    },
+    {
       "label": "Malek1414.github.io",
       "kind": "public",
       "mine": 54,
       "others": 0
+    },
+    {
+      "label": "macromedia-hackathon",
+      "kind": "public",
+      "mine": 52,
+      "others": 7
+    },
+    {
+      "label": "neurotree",
+      "kind": "public",
+      "mine": 38,
+      "others": 3
     },
     {
       "label": "hoopergpt",
@@ -47,9 +65,9 @@
       "others": 252
     },
     {
-      "label": "10 more public repos",
+      "label": "heartgold",
       "kind": "public",
-      "mine": 32,
+      "mine": 34,
       "others": 0
     },
     {
@@ -62,24 +80,6 @@
       "label": "cue-rea",
       "kind": "public",
       "mine": 9,
-      "others": 0
-    },
-    {
-      "label": "vidbridge-public-video-demo",
-      "kind": "public",
-      "mine": 8,
-      "others": 0
-    },
-    {
-      "label": "nightcrawler",
-      "kind": "public",
-      "mine": 8,
-      "others": 11
-    },
-    {
-      "label": "keychat",
-      "kind": "public",
-      "mine": 6,
       "others": 0
     }
   ]
