@@ -1,7 +1,7 @@
 <p align="center">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/banner-dark.svg?v=suit">
-  <img alt="Malek Hassan: a pixel portrait of me in a suit and red tie, next to the name" src="assets/readme/banner-light.svg?v=suit" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/banner-dark.svg?v=noframe">
+  <img alt="Malek Hassan: a pixel portrait of me in a suit and red tie, next to the name" src="assets/readme/banner-light.svg?v=noframe" width="100%">
 </picture>
 </p>
 
@@ -77,6 +77,6 @@ My contribution graph, eaten square by square. Redrawn twice a day by a GitHub A
 </picture>
 
 <p align="center">
-  <img alt="" src="assets/readme/logo.svg?v=suit" width="72"><br>
+  <img alt="" src="assets/readme/logo.svg?v=noframe" width="72"><br>
   <sub>Malek Hassan · Berlin</sub>
 </p>

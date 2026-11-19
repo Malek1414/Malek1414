@@ -222,6 +222,8 @@ def banner(spec, theme):
                   f'style="fill:{acc if hot else t["ink"]}">{esc(label)}</text>')
         cx += cw + 10
     glow, sparks = aura_svg(spec, theme, px, ox, oy, f"b{theme}")
+    frame = (f'<rect class="ants" x="{zone_x}" y="66" width="{frame_w:.0f}" height="128" rx="14"/>'
+             if spec.get("frame", True) else "")
     return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-label="{esc(spec['alt'])}">
 <style>
   :root {{ {color_vars(spec, theme)} }}
@@ -241,8 +243,8 @@ def banner(spec, theme):
 {glow}
 {sprite_svg(spec, px, ox, oy)}
 {sparks}
-<rect class="ants" x="{zone_x}" y="66" width="{frame_w:.0f}" height="128" rx="14"/>
-<text class="h rise" x="{zone_x + 18}" y="{base_y:.0f}" font-size="{fs:.0f}">{esc(title)}</text>
+{frame}
+<text class="h rise" x="{zone_x + (18 if spec.get('frame', True) else -4)}" y="{base_y:.0f}" font-size="{fs:.0f}">{esc(title)}</text>
 <text class="rise d1" x="{zone_x + 2}" y="232" font-size="{tfs:.1f}" style="fill:{t['muted']}">{esc(tag)}</text>
 <g class="rise d2">{chips}</g>
 <text class="rise d3" x="70" y="318" font-size="15" style="fill:{t['muted']}">{esc(spec.get('footer_left', 'Malek Hassan · Berlin'))}</text>

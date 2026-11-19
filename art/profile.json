@@ -282,5 +282,6 @@
   "NPRRTVSPSTTRRRSSSSTVVTVMKxxxxEEMVVVVVV",
   "PSTVVVVPSTTTSSSTTTTTVVVTMxxxzGELVVVVVV"
  ],
- "banner_px": 5
+ "banner_px": 5,
+ "frame": false
 }
