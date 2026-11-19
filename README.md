@@ -1,7 +1,7 @@
 <p align="center">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/banner-dark.svg">
-  <img alt="Malek Hassan: a pixel portrait of me, next to the name" src="assets/readme/banner-light.svg" width="100%">
+  <img alt="Malek Hassan: a pixel portrait of me in a suit and red tie, next to the name" src="assets/readme/banner-light.svg" width="100%">
 </picture>
 </p>
 
