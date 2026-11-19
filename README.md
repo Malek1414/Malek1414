@@ -77,6 +77,6 @@ My contribution graph, eaten square by square. Redrawn twice a day by a GitHub A
 </picture>
 
 <p align="center">
-  <img alt="" src="assets/readme/logo.svg" width="72"><br>
+  <img alt="" src="assets/readme/logo.svg?v=suit" width="72"><br>
   <sub>Malek Hassan · Berlin</sub>
 </p>
