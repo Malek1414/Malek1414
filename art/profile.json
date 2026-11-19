@@ -5,124 +5,220 @@
  "chips": [
   "CS @ CODE Berlin",
   "Morgana Studio",
-  "*Claude Code",
+  "*AI systems",
   "basketball"
  ],
- "footer_left": "Malek Hassan \u00b7 Berlin \u00b7 2026",
+ "footer_left": "Malek Hassan · Berlin · 2026",
  "footer_right": "malek1414.github.io",
- "alt": "Malek Hassan: a pixel basketball player dribbling, next to the name",
+ "alt": "Malek Hassan: a pixel portrait of me, next to the name",
  "accent": "jersey",
  "colors": {
-  "hair": [
-   "#26262b",
-   "#1f2328"
-  ],
-  "skin": [
-   "#c98a55",
-   "#9b6233"
-  ],
-  "eye": [
-   "#0d1117",
-   "#1f2328"
-  ],
   "jersey": [
    "#ff6a2b",
    "#e0531a"
   ],
-  "num": [
-   "#ffffff",
-   "#ffffff"
+  "p0": [
+   "#fce2e2",
+   "#fce2e2"
   ],
-  "shorts": [
-   "#3b4f8f",
-   "#24356b"
+  "p1": [
+   "#333131",
+   "#020000"
   ],
-  "shoe": [
-   "#f0f3f6",
-   "#8b949e"
+  "p2": [
+   "#b36f57",
+   "#b36f57"
   ],
-  "ball": [
-   "#e8803c",
-   "#c9601d"
+  "p3": [
+   "#423c40",
+   "#423c40"
   ],
-  "seam": [
-   "#3a1d0a",
-   "#2b1a0c"
+  "p4": [
+   "#abb49a",
+   "#abb49a"
+  ],
+  "p5": [
+   "#fd9f7e",
+   "#fd9f7e"
+  ],
+  "p6": [
+   "#7a7778",
+   "#7a7778"
+  ],
+  "p7": [
+   "#3a2f2f",
+   "#342929"
+  ],
+  "p8": [
+   "#c1cca3",
+   "#c1cca3"
+  ],
+  "p9": [
+   "#704434",
+   "#704434"
+  ],
+  "p10": [
+   "#e96066",
+   "#e96066"
+  ],
+  "p11": [
+   "#ffb598",
+   "#ffb598"
+  ],
+  "p12": [
+   "#db8468",
+   "#db8468"
+  ],
+  "p13": [
+   "#3f2e2c",
+   "#1f0e0c"
+  ],
+  "p14": [
+   "#965a44",
+   "#965a44"
+  ],
+  "p15": [
+   "#d6a69d",
+   "#d6a69d"
+  ],
+  "p16": [
+   "#534859",
+   "#534859"
+  ],
+  "p17": [
+   "#ff7785",
+   "#ff7785"
   ]
  },
  "legend": {
-  "H": [
-   "hair",
+  "A": [
+   "p0",
    "body"
   ],
-  "S": [
-   "skin",
+  "B": [
+   "p1",
+   "body"
+  ],
+  "C": [
+   "p2",
+   "body"
+  ],
+  "D": [
+   "p3",
    "body"
   ],
   "E": [
-   "eye",
+   "p4",
+   "body"
+  ],
+  "F": [
+   "p5",
+   "body"
+  ],
+  "G": [
+   "p6",
+   "body"
+  ],
+  "H": [
+   "p7",
+   "body"
+  ],
+  "I": [
+   "p8",
    "body"
   ],
   "J": [
-   "jersey",
-   "body"
-  ],
-  "W": [
-   "num",
-   "body"
-  ],
-  "P": [
-   "shorts",
-   "body"
-  ],
-  "L": [
-   "skin",
+   "p9",
    "body"
   ],
   "K": [
-   "shoe",
+   "p10",
    "body"
   ],
-  "A": [
-   "skin",
-   "arm"
+  "L": [
+   "p11",
+   "body"
   ],
-  "B": [
-   "ball",
-   "ball"
+  "M": [
+   "p12",
+   "body"
   ],
-  "b": [
-   "seam",
-   "ball"
+  "N": [
+   "p13",
+   "body"
+  ],
+  "O": [
+   "p14",
+   "body"
+  ],
+  "P": [
+   "p15",
+   "body"
+  ],
+  "Q": [
+   "p16",
+   "body"
+  ],
+  "R": [
+   "p17",
+   "body"
   ]
  },
- "motions": {
-  "arm": "pump",
-  "ball": "bounce"
- },
+ "motions": {},
  "sprite": [
-  "........HHHH.............",
-  ".......HHHHHH............",
-  ".......HHSSSS............",
-  ".......HSSSES............",
-  ".......SSSSSS............",
-  "........SSSS.............",
-  "......JJJJJJJJ...........",
-  ".....JJJJJJJJJJ..........",
-  "....JJJJWJWJWJJJ.........",
-  "...SJJJJWJWWWJJJAA.......",
-  "..SS.JJJWJJJWJJJ.AA......",
-  "..S..JJJJJJJJJJ...AA.....",
-  ".....JJJJJJJJJJ....AA....",
-  ".....PPPPPPPPPP.....AA...",
-  ".....PPPPPPPPPP....BBBB..",
-  ".....PPPPP.PPPP...BBbBBB.",
-  ".....LLL....LLL...BbbbbB.",
-  ".....LLL....LLL...BBBbBB.",
-  ".....LLL....LLL....BBBB..",
-  ".....LLL....LLL..........",
-  ".....LLL....LLL..........",
-  ".....LLL....LLL..........",
-  "....KKKK...KKKKK........."
- ]
+  "HHHH................................",
+  "HNNNNNN.............................",
+  "NNNNNNNHNNHN........................",
+  "NNNNNNNNNNNHHNN.....................",
+  "NNNNNNNNNNNNHNNHH...................",
+  "BNNNNNNNNNNNNNNNNN..................",
+  "BBNNBNNNNNNNNNNNNH..................",
+  "NNBBBBBNNNNBBNNNNHHN................",
+  "NNBBNNNNNNNBBBNBNNNHHN..............",
+  "BBBNHHHHNNNNBNNBBNNNHHNN............",
+  "BNJOOCCCCJHNBNNBBBBNHHNN............",
+  "JCMMFFLLLLMOHNNBBBBNBNH.............",
+  "CMMMFLLLLLLLCHNNBNNBBNHH............",
+  "CMMFFFLLLLLLFJNHNNNNNNNNH...........",
+  "CMMFFFFLLLLLFCHHNNNNNNNNNH..........",
+  "MFFFFFLLLLLLFMOJJNHNBNNNNH..........",
+  "CCCMLLLLLLLLLFCMOHNNBBBBNH..........",
+  "OOJJJCPLLLLLLFMMCHHNBBBBNNN.........",
+  "CCCOJJOMLLLLLLLFMJNNBBBBNN..........",
+  "OOCMCCCCLLLCOOCMFONBBNNNN...........",
+  "OJJHJOOCFLFOOJJOCONBBBN.............",
+  "MOOJCCCMFLLOJJCCCCNBN.B.............",
+  "LFMMMFFFFLLMODQJOCJHNH..............",
+  "LLLLLLFFFLLFFMMCMMCJHH..............",
+  "FLLLLFFFFFLFLLLLFMPH................",
+  "FLLLLFFFFLLFFLLLFMAD................",
+  "FFLLLFMMMLLFFLLLFMP.................",
+  "MFFFLFCJJCMOMLFFFMC.................",
+  "MFFFFFMOOOOOFFFFFMO.................",
+  "CMMMMMMOCCCOMFFFMC..................",
+  "CMMCCMMMMFFMMMMMM...................",
+  "CCCCCKKKKKKKCCMMC...................",
+  "OCCCCRRRRRRRKCMMJ...................",
+  "OOCOOORLLLLRKCCC....................",
+  "JOOOOJOKKKKCOCCJ....................",
+  "JJOOOOJJJJOOCCOH...NHH..............",
+  "NJOCCOCCMCCCMOJHBNNNNHH.............",
+  "NNHOCMMFFFMMMJJHBBBHNHHDHN..........",
+  "HNNHJOCMMCCOJJOJBNHDHHHHNHHDDDHHH...",
+  "DHBNHHHJJJHHHJOQDQDHHHNHHDDHHHHHDDH.",
+  "DDHNNNNNNNNNHDDQQDHHHNHDDDDDHHHHHHDH",
+  "HHDDNNBBBBBNDQQQDHDHHHDDHHDHHHHDDHHD",
+  "BBNHHHHHNNHQQQQDHDHHHDDDQQGGGQQDDHHH",
+  "HNNNNNNHHDQQQQQDDDHHDDHGIEEGIEEEGDHH",
+  "DDDDDDDDDDQQQQDDDDDDDDHQEEEEEEEEIGHH",
+  "DDDDDHHDDDDDQGQDDDDDDHDDGIEEEEEEEGDH",
+  "HHHHHHHHHDDDQGJDDDDDDDDDQQQQGGGEEEQH",
+  "NHHHHHDDDDDDDDHDDDDDDDDDDDDDDDDDQGQH",
+  "DDDDDDDDDDDDDHNHDDDDDDDDDDDDDDDDDHHH",
+  "DDDDDDDDDDDDDDHHDDDDDDDDDDDDDDDDDDHH",
+  "DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDHDD",
+  "DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDHDDD",
+  "DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"
+ ],
+ "banner_px": 5
 }

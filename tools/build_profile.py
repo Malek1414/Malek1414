@@ -269,7 +269,7 @@ def chart(d, theme):
             f'<text class="val" x="{bar_x + w + 10:.1f}" y="{y + 16}" style="animation-delay:{delay + 0.5:.2f}s">{human(r["total"])}</text>')
     w_ = d["window"]
     period = f"{day(w_['first'])} – {day(w_['last'])}, {w_['last'][:4]}"
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-label="Claude Code tokens by repo: {human(w_['total'])} tokens from {period}">
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-label="AI tokens by repo: {human(w_['total'])} tokens from {period}">
 <defs>
   <linearGradient id="g-{theme}" x1="0" x2="1"><stop offset="0" stop-color="{t['accent']}"/><stop offset="1" stop-color="{t['accent2']}"/></linearGradient>
   <linearGradient id="s-{theme}" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
@@ -290,13 +290,13 @@ def chart(d, theme):
   @media (prefers-reduced-motion: reduce) {{ .bar {{ animation: none; transform: none; }} .lbl, .val {{ animation: none; opacity: 1; }} .sheen, .ants {{ animation: none; }} .sheen {{ display: none; }} }}
 </style>
 <rect width="{width}" height="{height}" rx="18" fill="{t['bg']}"/>
-<text class="h" x="48" y="64" font-size="30">Claude Code tokens, by repo</text>
-<text x="48" y="96" font-size="16" style="fill:{t['muted']}">{period} · {human(w_['output'])} written by Claude · per-repo history starts when transcripts were kept</text>
+<text class="h" x="48" y="64" font-size="30">Tokens, by repo</text>
+<text x="48" y="96" font-size="16" style="fill:{t['muted']}">{period} · {human(w_['output'])} of output · per-repo history starts when transcripts were kept</text>
 <rect class="ants" x="{width - 318}" y="34" width="270" height="78" rx="12"/>
 <text class="h" x="{width - 183}" y="84" font-size="38" text-anchor="middle" style="fill:{t['accent']}">{human(w_['total'])}</text>
 <text x="{width - 183}" y="104" font-size="13" text-anchor="middle" style="fill:{t['muted']}">tokens in this window</text>
 {''.join(bars)}
-<text x="48" y="{height - 22}" font-size="13" style="fill:{t['muted']}">Counted from local Claude Code transcripts (input, output and cache) and attributed to a repo by working directory or the files each call touched. Rebuilt {d['built']}.</text>
+<text x="48" y="{height - 22}" font-size="13" style="fill:{t['muted']}">Counted from local agent transcripts (input, output and cache) and attributed to a repo by working directory or the files each call touched. Rebuilt {d['built']}.</text>
 </svg>
 """
 
@@ -343,7 +343,7 @@ def timeline(d, theme):
         legend.append(f'<rect x="{lx:.0f}" y="152" width="10" height="10" rx="2" fill="{col}"/><text x="{lx + 16:.0f}" y="161" font-size="13" style="fill:{t["muted"]}">{label}</text>')
         lx += 30 + 7.4 * len(label)
         cx += w
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-label="Claude Code tokens per day since {day(d['since'])}: {human(d['total'])} in total">
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-label="AI tokens per day since {day(d['since'])}: {human(d['total'])} in total">
 <defs><linearGradient id="tl-{theme}" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="{t['accent']}"/><stop offset="1" stop-color="{t['accent2']}"/></linearGradient></defs>
 <style>
   text {{ font-family: {FONT}; fill: {t['ink']}; }}
@@ -359,11 +359,11 @@ def timeline(d, theme):
   @media (prefers-reduced-motion: reduce) {{ .day, .mix {{ animation: none; transform: none; }} .pk {{ animation: none; opacity: 1; }} .ants {{ animation: none; }} }}
 </style>
 <rect width="{width}" height="{height}" rx="18" fill="{t['bg']}"/>
-<text class="h" x="48" y="64" font-size="30">Claude Code, all time</text>
-<text x="48" y="96" font-size="16" style="fill:{t['muted']}">Since {day(d['since'])}, {d['since'][:4]} · {d['sessions']:,} sessions · {d['messages']:,} messages · {human(d['output'])} written by Claude</text>
+<text class="h" x="48" y="64" font-size="30">Tokens, all time</text>
+<text x="48" y="96" font-size="16" style="fill:{t['muted']}">Since {day(d['since'])}, {d['since'][:4]} · {d['sessions']:,} sessions · {d['messages']:,} messages · {human(d['output'])} of output</text>
 <rect class="ants" x="{width - 318}" y="34" width="270" height="78" rx="12"/>
 <text class="h" x="{width - 183}" y="84" font-size="38" text-anchor="middle" style="fill:{t['accent']}">{human(d['total'])}</text>
-<text x="{width - 183}" y="104" font-size="13" text-anchor="middle" style="fill:{t['muted']}">tokens through Claude</text>
+<text x="{width - 183}" y="104" font-size="13" text-anchor="middle" style="fill:{t['muted']}">tokens processed</text>
 {''.join(mix)}
 {''.join(legend)}
 <line x1="{x0}" y1="{base + 0.5}" x2="{x1}" y2="{base + 0.5}" stroke="{t['track']}" stroke-width="1"/>
@@ -371,7 +371,7 @@ def timeline(d, theme):
 {''.join(ticks)}
 <g class="pk"><line x1="{px:.1f}" y1="{base - tall - 6}" x2="{px:.1f}" y2="{base - tall - 18}" stroke="{t['muted']}"/>
 <text x="{min(px, x1 - 160):.1f}" y="{base - tall - 24}" font-size="13" style="fill:{t['muted']}">busiest day: {peak_day}, {human(peak)}</text></g>
-<text x="48" y="{height - 16}" font-size="13" style="fill:{t['muted']}">From Claude Code's own usage stats (input, output and cache tokens). Older history wasn't recorded on this Mac. Rebuilt {d['built']}.</text>
+<text x="48" y="{height - 16}" font-size="13" style="fill:{t['muted']}">From local usage stats (input, output and cache tokens). Older history wasn't recorded on this Mac. Rebuilt {d['built']}.</text>
 </svg>
 """
 
@@ -421,7 +421,7 @@ def dune(d, theme):
     width, height = 1200, 220
     acc = t["accent"]
     glow, sparks = art.aura_svg(spec, theme, px, ox, oy, f"d{theme}")
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-label="Claude wrote about {written:.0f} copies of Dune for me and read about {read:,.0f}">
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-label="My agents wrote about {written:.0f} copies of Dune for me and read about {read:,.0f}">
 <style>
   :root {{ {art.color_vars(spec, theme)} }}
   text {{ font-family: {FONT}; fill: {t['ink']}; }}
@@ -438,7 +438,7 @@ def dune(d, theme):
 {glow}
 {art.sprite_svg(spec, px, ox, oy)}
 {sparks}
-<text class="h rise" x="392" y="92" font-size="56">≈ {written:.0f} Dunes <tspan font-size="26" font-weight="600" style="fill:{t['muted']}">written by Claude</tspan></text>
+<text class="h rise" x="392" y="92" font-size="56">≈ {written:.0f} Dunes <tspan font-size="26" font-weight="600" style="fill:{t['muted']}">of output</tspan></text>
 <text class="rise d1" x="394" y="134" font-size="20" style="fill:{t['muted']}">{human(d['output'])} output tokens is about {written:.0f} copies of Frank Herbert's <tspan style="fill:{acc}">Dune</tspan>.</text>
 <text class="rise d1" x="394" y="162" font-size="20" style="fill:{t['muted']}">Counting everything it read as well, {human(d['total'])} tokens, it is about <tspan font-weight="700" style="fill:{t['ink']}">{read:,.0f} Dunes</tspan>.</text>
 <text class="rise d2" x="394" y="196" font-size="13" style="fill:{t['muted']}">Dune ≈ {DUNE_WORDS:,} words × {TOKENS_PER_WORD} tokens per word ≈ {DUNE_TOKENS:,.0f} tokens.</text>

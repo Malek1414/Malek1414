@@ -198,7 +198,7 @@ def banner(spec, theme):
     acc = spec["colors"][spec["accent"]][0 if theme == "dark" else 1]
     width, height = 1200, 340
     sw, sh = len(spec["sprite"][0]), len(spec["sprite"])
-    px = max(3, min(8, 290 // sw, 220 // sh))
+    px = spec.get("banner_px") or max(3, min(8, 290 // sw, 220 // sh))
     ox = 50 + (310 - sw * px) / 2
     oy = 158 - sh * px / 2
     zone_x, zone_w = 392, 738

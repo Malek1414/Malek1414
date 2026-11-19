@@ -1,7 +1,7 @@
 <p align="center">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/banner-dark.svg">
-  <img alt="Malek Hassan: a pixel basketball player dribbling, next to the name" src="assets/readme/banner-light.svg" width="100%">
+  <img alt="Malek Hassan: a pixel portrait of me, next to the name" src="assets/readme/banner-light.svg" width="100%">
 </picture>
 </p>
 
@@ -11,7 +11,7 @@
   <a href="#by-the-numbers"><b>By the numbers</b></a>
 </p>
 
-I build AI systems in Berlin: local-first tools, deterministic guardrails around AI, and commit logs that read like a story. I study computer science at CODE University and run Morgana Studio. Most of what you see here was built with Claude Code, and I keep count.
+I build AI systems in Berlin: local-first tools, deterministic guardrails around AI, and commit logs that read like a story. I study computer science at CODE University and run Morgana Studio.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/divider-dark.svg">
@@ -22,7 +22,7 @@ I build AI systems in Berlin: local-first tools, deterministic guardrails around
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/alltime-dark.svg">
-  <img alt="Claude Code tokens per day since July 2026, with the mix of models used" src="assets/alltime-light.svg" width="100%">
+  <img alt="AI tokens per day since July 2026, with the mix of models used" src="assets/alltime-light.svg" width="100%">
 </picture>
 
 <picture>
@@ -37,10 +37,10 @@ I build AI systems in Berlin: local-first tools, deterministic guardrails around
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/tokens-dark.svg">
-  <img alt="Bar chart of Claude Code tokens per repo" src="assets/tokens-light.svg" width="100%">
+  <img alt="Bar chart of AI tokens per repo" src="assets/tokens-light.svg" width="100%">
 </picture>
 
-<sub>All-time tokens come from Claude Code's own usage stats, which start in July 2026 on this Mac. The per-repo split needs full transcripts, which Claude Code keeps for about 30 days, so that chart covers a shorter window and grows from here. Commits come from the GitHub API. Private repos are summed into one bar. Rebuilt with <code>python3 tools/build_profile.py</code>.</sub>
+<sub>All-time tokens come from local usage stats, which start in July 2026 on this Mac. The per-repo split needs full transcripts, which are kept for about 30 days, so that chart covers a shorter window and grows from here. Commits come from the GitHub API. Private repos are summed into one bar. Rebuilt with <code>python3 tools/build_profile.py</code>.</sub>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/divider-dark.svg">
