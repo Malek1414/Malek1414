@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="20" viewBox="0 0 1200 20" shape-rendering="crispEdges" role="presentation">
 <style>
-  rect { fill: #ff6a2b; opacity: .18; animation: sweep 2.4s ease-in-out infinite; }
+  rect { fill: #ff8f3a; opacity: .18; animation: sweep 2.4s ease-in-out infinite; }
   @keyframes sweep { 0%, 100% { opacity: .18; } 12% { opacity: 1; } 30% { opacity: .18; } }
   @media (prefers-reduced-motion: reduce) { rect { animation: none; opacity: .5; } }
 </style>

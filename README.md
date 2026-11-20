@@ -1,7 +1,7 @@
 <p align="center">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/banner-dark.svg?v=noframe">
-  <img alt="Malek Hassan: a pixel portrait of me in a suit and red tie, next to the name" src="assets/readme/banner-light.svg?v=noframe" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/banner-dark.svg?v=gym">
+  <img alt="Malek Hassan: a pixel portrait of me in the gym, arms up, next to the name" src="assets/readme/banner-light.svg?v=gym" width="100%">
 </picture>
 </p>
 
@@ -14,8 +14,8 @@
 I build AI systems in Berlin: local-first tools, deterministic guardrails around AI, and commit logs that read like a story. I study computer science at CODE University and run Morgana Studio.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/divider-dark.svg">
-  <img alt="" src="assets/readme/divider-light.svg" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/divider-dark.svg?v=gym">
+  <img alt="" src="assets/readme/divider-light.svg?v=gym" width="100%">
 </picture>
 
 ## By the numbers
@@ -43,8 +43,8 @@ I build AI systems in Berlin: local-first tools, deterministic guardrails around
 <sub>All-time tokens come from local usage stats, which start in July 2026 on this Mac. The per-repo split needs full transcripts, which are kept for about 30 days, so that chart covers a shorter window and grows from here. Commits come from the GitHub API. Private repos are summed into one bar. Rebuilt with <code>python3 tools/build_profile.py</code>.</sub>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/divider-dark.svg">
-  <img alt="" src="assets/readme/divider-light.svg" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/divider-dark.svg?v=gym">
+  <img alt="" src="assets/readme/divider-light.svg?v=gym" width="100%">
 </picture>
 
 ## Things I've built
@@ -63,8 +63,8 @@ Every repo has its own pixel mascot, drawn with [`tools/readme_art.py`](tools/re
 <!-- gallery:end -->
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/divider-dark.svg">
-  <img alt="" src="assets/readme/divider-light.svg" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/divider-dark.svg?v=gym">
+  <img alt="" src="assets/readme/divider-light.svg?v=gym" width="100%">
 </picture>
 
 ## The sandworm

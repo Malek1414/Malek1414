@@ -8,118 +8,110 @@
   "*AI systems",
   "basketball"
  ],
- "footer_left": "Malek Hassan · Berlin · 2026",
+ "footer_left": "",
  "footer_right": "malek1414.github.io",
- "alt": "Malek Hassan: a pixel portrait of me in a suit and red tie, next to the name",
+ "alt": "a pixel portrait of me in the gym, arms up, next to the name",
  "accent": "jersey",
  "colors": {
-  "jersey": [
-   "#ff6a2b",
-   "#e0531a"
-  ],
   "p0": [
-   "#f3eeee",
-   "#f3eeee"
+   "#cd936e",
+   "#cd936e"
   ],
   "p1": [
-   "#ecac86",
-   "#ecac86"
+   "#b97b56",
+   "#b97b56"
   ],
   "p2": [
-   "#d08660",
-   "#d08660"
+   "#cd6828",
+   "#cd6828"
   ],
   "p3": [
-   "#aa6749",
-   "#aa6749"
+   "#a96e49",
+   "#a96e49"
   ],
   "p4": [
-   "#9c8e8c",
-   "#9c8e8c"
+   "#f47d30",
+   "#f47d30"
   ],
   "p5": [
-   "#824c34",
-   "#824c34"
+   "#9e643f",
+   "#9e643f"
   ],
   "p6": [
-   "#726463",
-   "#726463"
+   "#955c38",
+   "#955c38"
   ],
   "p7": [
-   "#51443f",
-   "#51443f"
+   "#8c5532",
+   "#8c5532"
   ],
   "p8": [
-   "#633724",
-   "#633724"
+   "#c05410",
+   "#c05410"
   ],
   "p9": [
-   "#422416",
-   "#422416"
+   "#864f2b",
+   "#864f2b"
   ],
   "p10": [
-   "#342c2a",
-   "#342c2a"
+   "#7f4a28",
+   "#7f4a28"
   ],
   "p11": [
-   "#312520",
-   "#281c17"
+   "#7d4622",
+   "#7d4622"
   ],
   "p12": [
-   "#2c2624",
-   "#191311"
+   "#744529",
+   "#744529"
   ],
   "p13": [
-   "#282726",
-   "#0c0b0a"
+   "#75411f",
+   "#75411f"
   ],
   "p14": [
-   "#2f2625",
-   "#0b0201"
+   "#703d1b",
+   "#703d1b"
   ],
   "p15": [
-   "#282827",
-   "#050504"
+   "#693818",
+   "#693818"
   ],
   "p16": [
-   "#3a2322",
-   "#190201"
+   "#603212",
+   "#603212"
   ],
   "p17": [
-   "#282828",
-   "#030303"
+   "#54290c",
+   "#54290c"
   ],
   "p18": [
-   "#282828",
-   "#020202"
+   "#48301d",
+   "#48301d"
   ],
   "p19": [
-   "#282828",
-   "#010101"
+   "#411f09",
+   "#411f09"
   ],
   "p20": [
-   "#46201c",
-   "#2f0905"
+   "#381b0a",
+   "#301506"
   ],
   "p21": [
-   "#282828",
+   "#2e1a0f",
+   "#1c0d05"
+  ],
+  "p22": [
+   "#2b1710",
+   "#0f0301"
+  ],
+  "p23": [
+   "#221812",
    "#000000"
   ],
-  "tie1": [
-   "#9a1f2e",
-   "#9a1f2e"
-  ],
-  "tie2": [
-   "#c22a3e",
-   "#c22a3e"
-  ],
-  "tie3": [
-   "#651220",
-   "#651220"
-  ],
-  "tp20": [
-   "#46201c",
-   "#46201c"
+  "jersey": [
+   "#ff8f3a",
+   "#e2701c"
   ]
  },
  "legend": {
@@ -211,77 +203,92 @@
    "p21",
    "body"
   ],
-  "a": [
-   "tp20",
+  "W": [
+   "p22",
    "body"
   ],
-  "x": [
-   "tie1",
-   "body"
-  ],
-  "y": [
-   "tie2",
-   "body"
-  ],
-  "z": [
-   "tie3",
+  "X": [
+   "p23",
    "body"
   ]
  },
  "motions": {},
  "sprite": [
-  "...................LKLLM..............",
-  "...............MLKHHKMMMLKL...........",
-  "..............KKLMMMNNTPMMLLO.........",
-  "............LHKMLNNPVRNPPSSNLM........",
-  "............KKNSVTPTVTPPPPTTPLL.......",
-  "...........KOMMVVPPTVVTVTTTTTSML......",
-  "..........LLVPPPNNPSNNOTVVVVTVVN......",
-  "..........LMTNPNMLJIIIFIJMTVVVVON.....",
-  "..........KMPRLFDCCCCCCCDFJMVVVRN.....",
-  "..........KNMPFBBBBCCCCDDFFINVVTO.....",
-  "..........HMPLCBBCCCCCCDDFIILVVTO.....",
-  "..........LNTKBBCCCCCCCDDFIILVVSR.....",
-  "..........NLTHBBBBBBCCCCDFFIJVVT......",
-  "...........LNDBCDDDCCCCDDFFFJVV.......",
-  "...........HHCEHKLJIDCFJKKHHHLP.......",
-  "...........DDEBDILJDCDJLLKHLHHJ.......",
-  "...........DCCDIJMUFCFJUMMKJHIU.......",
-  "...........DCCDDFJIDBDJJJJJJFF........",
-  "...........FCBCDDDDCBDIIIIIIFI........",
-  "...........FCBBCCCDBBDIIFFFIFI........",
-  "............CBBCCDCBBCFJIFFIFJ........",
-  ".............BBCDFCBBDIIIFIIJ.........",
-  ".............CBCFCDFDIUJIIII..........",
-  ".............GBDFFILJJQLLJJJ..........",
-  ".............HBDIIFIIIUUQJJM..........",
-  ".............GBDDDDFIIJUJJL...........",
-  ".............ACFDCCDFFJJJL............",
-  "............EABFDCDIJaaJJL............",
-  "...........MHAAEFCDDFIIJLM............",
-  "..........MLVEAAEIDDDFILNL............",
-  ".........MMNMNAAAKNJIIMVxI............",
-  "........KLPPMTHAAEVVxzVNyHK...........",
-  "......KKMNRPNMVEAAEHHLxJxGHN..........",
-  "....KKLNNNRRPNNPBAAABEHyHEKML.........",
-  "..KHKMNNNPSSPPNVKAAAAAEKGEKVLMN.......",
-  "KKKMNNNNPPSTPPPNVEAAAExxxGHVPMNNN.....",
-  "MMNNNNNPPPRVTRRNVKAABzyyxLGNVTRRPNNP..",
-  "NNNNNNPPRRPPSSRPNVEBKLxyyKGKVRVTTVRNV.",
-  "NNNNPPPRRRPPSSRPNVLGEGHxyLEGRVVVVVVVV.",
-  "NNNPPPPRPPPRRSRRPNVGEEExxxGELVSVVVVVVV",
-  "NPRPPPPPPPPPRSSSSPVLEEGzyyHEHVSVVVVVVV",
-  "MNSRPPPRPPPPRSSSSRPVGEGxyyLEGVVVVVVVVV",
-  "MNPTPPPPRPPPPRSSSSPVLEGxyyzGEMVTVVVVVV",
-  "NNNSRPPPPPPPPRSSSSRPVGEyyyzHEKVSVVVVVV",
-  "NNNRTPPPPPRRRRRTSSTPVKEKxxzLEGVVVVVVVV",
-  "NNNPVRPPRPRPPRRSTTTSRTEGxxxzGENVTVVVVV",
-  "NNNPVSPPRPPPPPRRTTTTPVHGxxxzGEKVTVVVST",
-  "NNPPVTPPRRRRRRSSRTTTTVNGyxxzHEHVTVVVPS",
-  "NPPPTVPPRSSRPRSSSTTVTRVHLxxzLEGNVVVTSV",
-  "NPRRTVSPSTTRRRSSSSTVVTVMKxxxxEEMVVVVVV",
-  "PSTVVVVPSTTTSSSTTTTTVVVTMxxxzGELVVVVVV"
+  "....DAAA....................MDM...........",
+  "...DABAAH..................TAAFDS.........",
+  "...AGDFJGM.................GBDMKH.........",
+  "..HDGFKMKFM......U........MHKKNNKS........",
+  "..DGGHKMKKH..USSSTSSSSTU..DKMMNNNQ........",
+  ".MDHHKMNOMRSSSTUUVVUUVUUSHJHKMNNNPR.......",
+  ".HFHKMOOOQTUVVWVVVWVWWVWTQPMMMMNNPQU......",
+  ".GGHKNNOPRVWWWWWWWXXXWWWVTRPMMMNNOQU......",
+  ".GGJKMNNOTWXXXXXWUUVWXXWWUTQMMMMKNPT......",
+  ".GGKKLMNORWXXXWSPMKPTWXXXWUPMMMKKMNR......",
+  ".FGLKKMNOQTXXXTPPOMOPTXXXXVPMNMKKKLQ......",
+  ".GHLKLMNOONWXVTOKJHMORVXXXUONNMKKKLQ......",
+  ".HJMKKKNOOKTXURRMKTUTRTXXXQMOOMMKKMQ......",
+  ".KKNLKMNONNRWUUURNUUTTTVXWOMOOMMMMNQ......",
+  ".MLNMNNNONNRWUUVMFRUURRUXVOMPPMMMMOQ......",
+  ".PLNNNNOPOORWUUUKDPJHJRTSUPMOPOONOPQV.....",
+  ".SLNNNOQQOPRWTNNRTTJJNRTMURPOPPPOOPQ......",
+  ".TKNNNPQQQQRWTPPUTTONORTWVTRQQRQPPPQ......",
+  "..KNNOQQQQQTVUQRTRRTQQRTUUUTRRRRPPQR......",
+  "..KLNPQQQRQTWUTTROPRRRRTVWVTTRRRQPQR......",
+  "..MLNPQQQQRUUUTTTTTRRTTUV.WTRRRRRQQR......",
+  "..KLNQQQPORRRTUTTPMQRTUUVVUURQRRRRQQ......",
+  "..HLNQRQPQPNQTVUTTTUVUUUUTTRQPQRRRQQ......",
+  ".THNOQNMQRKHKPVWWWWWWVUUUTPKQQPPRRQQT.....",
+  ".THNONKPRTJFGJOUWWWWVTRUTPLHHRROMQRQT.....",
+  ".THNNKPRTRJFFHHNUWVVTPRTOJJGFPTQOOQQR.....",
+  ".UHLKNQRQOJFFFGHKRUURPRPJHFFGMTTRPOQR.....",
+  "..JKLONMPOJFFFFFGJRRQQQJGFFFHKRTTRPQR.....",
+  "..OJJKGGPPJFFDDDDFHOQOJGFFFFJKQRPQQQT.....",
+  "..THHFFHMMHFDDDDDDFJPHGFDDDFJLPQKMQRU.....",
+  "...KFDFGGHGDDDDDDDFGHGGFDDDFHKOPLKPR......",
+  "...SDFFFFGFDBBBBBDDFGFFDDDDFGJKKJKNQ......",
+  "....DFFFDFDBBBBBBBBDFDBBDBDFGHKHHJLP......",
+  "...TDFFDDDBBBBBBBBBBFDBBBDDFGHJHGHKO......",
+  "...SBFDDDDBBFFBBBBBDDDBBBDDFJHJHFGKN......",
+  "...PDFDDDAABMKBBBBDFFDDBDDFGRLHJFGJNT.....",
+  "...PDFDDBAAAHGBBBBDDFDDFFGGGQOGKGGJNS.....",
+  "...SDGFBAAAAABBDDDDFFDFFFGGGJHGJHHJNS.....",
+  "...SFGDBAAABBBBDDDFGGFFFFGGGGGFHGHKOS.....",
+  "....GGDBABDDBBBBDDDFHGJGFFFFGGGJGGLOT.....",
+  "....MGDBBBDDBBBBDDDHFDGHFFFGHGFGHJLPT.....",
+  "....SGFDBAADDFFFFGHGBBDFGGGHHGDDGKNPU.....",
+  ".....GGGGGGDBFFGGHGFFFFGHHHHGHJKNOOQ......",
+  ".....HGHHJJBAABDDDFFBABFHHHGGHOQPPPQ......",
+  ".....MGHGFGGDBAABBDAAAAABDDGJLNJNPPS......",
+  ".....SGHJJHGHGDDDBAABDBBBBDHLLLORQPT......",
+  "......GHGJGDDGGFDBBDGGFFFFGKJHKQNNP.......",
+  "......MGFDFDBDDDDDDGHGHJHHHJJJOOJPS.......",
+  "......SFHGDGGDDDDFGHJKNOLLLLNOOOQQT.......",
+  ".......GGGDFGGFGGGGJLKHHLNOOONNNQR........",
+  ".......JGHFDFGGGJLNOOJFGHJKLJHKPQS........",
+  ".......MFGHGGGHJLOPQOJHJJHHHHJOQPT........",
+  ".......SDFGJJHJJJJJKLJJLKLKJLOQQP.........",
+  "........FGGHJJHHHHJLLKLLNNNNOOOPQ.........",
+  "........GGHGHJKLNNNONKLNNNOOPONQQ.........",
+  "........MFJJJLNOOOPONLKNOPQQQPPQQ.........",
+  "........SFJJLNOOOOPPONNPQQQQQPQQR.........",
+  ".........GJJLOOPPPPPPONNNNOOOQQQR.........",
+  ".........FJJKLNOOPPPQPLKLLNOPQPQQ.........",
+  ".........FHKKJLLLLLLNNKKLNOPPOPQQ.........",
+  ".........DGJJJJKKJJHKQKJLNOPPNPPO.........",
+  ".........DDGJJJJLLKKKJJKLNOPONONLT........",
+  ".........DDFGJKKLLLLJFHLNNOPNNNLKQ........",
+  ".........FDDFGHLLLLLLKJLLNOOLKKKKN........",
+  ".........FFDFFFJLKKLNLNNNNOOLJJJKNU.......",
+  ".........HJGFFFHLLLNNNNOOOPONNKJOQT.......",
+  ".........HNLJKHHKNNNNNOOPPPONLLOQQR.......",
+  "........SFLPPONJHLNNONOOOOONKJKNMMM.......",
+  "........GDGJJJKJJJNNNNNOOONLJHKJKKMS......",
+  ".......PEDDDDFHJHHKKKKKLMKKJFHJGJMNI......",
+  ".......CEECBBDFHGFHHGGHHHJJFFHGGGGICN.....",
+  "......QEEEEEECCDGDFGGGGFGHHFHGCCCCIIE.....",
+  "......CEEEEECEEECCCCCCCCIIIIICIIIIIEEF....",
+  "......EEEEEEIIIIIIICIICCCIIIIIIIIEEEIC...."
  ],
- "banner_px": 5,
+ "banner_px": 4,
  "frame": false
 }
